@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="480" height="100" role="img" aria-label="Evers &amp; Paige">
+  <!-- Rebuilt 1:1 from their live header (.brand / .monogram in eversandpaige.com/style.css): gold #d2af62, Georgia, 49px circle. Transparent background. -->
+  <circle cx="24.5" cy="25" r="24" fill="none" stroke="#d2af62" stroke-width="1"/>
+  <text x="24.5" y="31.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#d2af62">EP</text>
+  <text x="63" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="17" letter-spacing="2" fill="#d2af62">EVERS &amp; PAIGE</text>
+  <text x="63" y="36" font-family="Arial, Helvetica, sans-serif" font-size="8" letter-spacing="2" fill="#d2af62">QUALITY · CARE · EXCELLENCE</text>
+</svg>

@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home &amp; Commercial Cleaning in Leicestershire | Evers &amp; Paige (example redesign)</title>
+<meta name="description" content="Example redesign of the Evers &amp; Paige website by Stratford Digital. Not the live site.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2311120F'/%3E%3Ccircle cx='32' cy='32' r='23' fill='none' stroke='%23D2AF62' stroke-width='2.5'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia,serif' font-size='22' fill='%23D2AF62'%3EEP%3C/text%3E%3C/svg%3E">
+<!-- Example of the business data the live site could carry for Google (finding 3). The Google profile link goes in sameAs once Evers & Paige confirm it. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Evers & Paige Ltd","description":"Commercial, office, domestic, deep and builders cleaning in Groby, Anstey, Markfield, Newtown Linford and across Leicestershire.","url":"https://eversandpaige.com/","address":{"@type":"PostalAddress","addressLocality":"Groby","addressRegion":"Leicestershire","addressCountry":"GB"},"areaServed":["Groby","Anstey","Markfield","Newtown Linford","Leicestershire"],"sameAs":["https://www.instagram.com/eversandpaige/"]}
+</script>
+<style>
+/* Self-hosted fonts, latin subset: Gelasio (SIL OFL 1.1, metric-compatible with Georgia) and Arimo (SIL OFL 1.1, metric-compatible with Arial). Licences in fonts/. */
+@font-face{font-family:"Gelasio";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/gelasio-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Gelasio";font-style:italic;font-weight:400 700;font-display:swap;src:url(fonts/gelasio-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Arimo";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/arimo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  /* Evers & Paige's own colours, from their stylesheet */
+  --bg:#11120F; --panel:#191B16; --deep:#1D241B; --gold:#D2AF62; --gold-h:#E5C680; --gold-d:#81672C; --orbit:#9C8146;
+  --cream:#F5F1E7; --muted:#B3B4A8; --line:#34362B; --light:#EAE6DC; --ink:#20241C; --wa:#25D366;
+  /* the request slip is printed on their cream */
+  --paper:#F5F1E7; --field:#EAE6DC; --field-h:#E0DACB; --p-muted:#61634F; --p-line:#D9D3C3;
+  --f-head:"Gelasio",Georgia,"Times New Roman",serif;
+  --f-body:"Arimo",Arial,Helvetica,sans-serif;
+  --s-display:clamp(36px,5.4vw,78px);
+  --s-head:clamp(30px,3vw,44px);
+  --s-sub:22px; --s-lead:18px; --s-ui:16px; --s-small:14px;
+  --gut:16px; --maxw:1200px; --head-h:68px;
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-expo:cubic-bezier(.16,1,.3,1);
+  --t-press:140ms; --t-hover:180ms; --t-ui:260ms; --t-reveal:820ms;
+  --bar:0px;
+  --r:20px; /* containers: slip, summary, bands, map frame */
+  --r-s:12px; /* controls: fields, day chips, the picked clean */
+}
+@media (min-width:760px){:root{--gut:32px}}
+@media (min-width:1000px){:root{--head-h:80px}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 12px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 var(--s-ui)/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+figure{margin:0}
+button,input{font:inherit;color:inherit}
+a{color:var(--gold)}
+h1,h2,h3{font-family:var(--f-head);font-weight:400;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+::selection{background:var(--gold);color:var(--bg)}
+.wrap{max-width:calc(var(--maxw) + 2*var(--gut));margin:0 auto;padding:0 var(--gut)}
+.tab{font-variant-numeric:tabular-nums}
+.d-only{display:none}
+@media (min-width:1000px){.d-only{display:inline}}
+
+/* ---------- buttons: one shape, fully round ---------- */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;background:var(--gold);color:var(--bg);font-weight:700;font-size:var(--s-ui);text-decoration:none;cursor:pointer;transition:transform var(--t-press) var(--ease-out),background-color var(--t-hover) ease}
+.btn:active{transform:scale(.97)}
+.btn.small{min-height:44px;padding:0 20px}
+.btn.wide{width:100%}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.wa{background:var(--wa);color:#0B1F12}
+.btn.ghost{background:#2A2C24;color:var(--cream)}
+.btn.ghost.wa-i svg,.ibtn.wa-i svg{color:var(--wa)}
+.btn.ink{background:var(--bg);color:var(--cream)}
+.link{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--cream);font-weight:700;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;transition:color var(--t-hover) ease}
+.link svg{width:18px;height:18px;color:var(--gold);transition:transform var(--t-ui) var(--ease-out)}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;background:var(--bg)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:var(--head-h)}
+.logo{display:block;flex:none}
+.logo img{height:40px;width:auto}
+.nav{display:none;gap:24px;margin-left:8px}
+.nav a{white-space:nowrap;color:var(--cream);text-decoration:none;font-size:var(--s-ui);padding:12px 0;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--t-ui) var(--ease-out)}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.top-right .link{display:none}
+@media (min-width:1000px){.nav{display:flex}.top-right .link{display:inline-flex}.logo img{height:48px}}
+.hdr-cta .s{display:none}
+@media (max-width:999px){
+  .hdr-cta{min-height:44px;padding:0 18px;font-size:15px;background:transparent;color:var(--gold);box-shadow:inset 0 0 0 1.5px var(--gold);transition:opacity .25s var(--ease-out),visibility 0s}
+  .hdr-cta .l{display:none}.hdr-cta .s{display:inline}
+  .slip-on .hdr-cta{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility 0s linear .2s}
+}
+
+/* ---------- hero + request slip ---------- */
+.hero{padding:20px 0 48px}
+.hero-grid{display:grid;gap:16px}
+.hero h1{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.eyebrow{font:700 12.5px/1.5 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.display{font-size:clamp(40px,4.9vw,66px);line-height:1.04;letter-spacing:-.022em}
+.display em{font-style:italic;color:var(--gold)}
+.hero-lead{font-size:17px;line-height:1.5;max-width:34em;color:var(--cream)}
+.rating{display:flex;align-items:center;gap:10px;margin-top:12px;font-weight:700}
+.stars{display:flex;gap:2px;color:var(--gold)}
+.stars svg{width:17px;height:17px}
+.trust{display:grid;grid-template-columns:auto auto;justify-content:start;gap:6px 18px;margin:10px 0 0;padding:0;list-style:none;font-size:15px;color:var(--cream)}
+.trust li{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.trust svg{width:16px;height:16px;color:var(--gold);flex:none}
+.roundel{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (min-width:1000px){
+  .hero{padding:24px 0 120px}
+  .hero-grid{grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:0;align-items:start}
+  .hero-side{grid-column:1/7;padding-top:26px}
+  .hero h1{margin-bottom:22px}
+  .slip-col{grid-column:7/-1;justify-self:end;width:100%;max-width:540px}
+  .hero-lead{font-size:var(--s-lead);line-height:1.55}
+  .rating{margin-top:22px}
+  .trust{gap:8px 28px;font-size:var(--s-ui)}
+  /* their roundel, rebuilt as pure SVG: gold ring and lettering, no box */
+  .roundel{display:block;width:250px;margin-top:44px}
+  .roundel svg{display:block;width:100%;height:auto;overflow:visible}
+  .roundel .spin{transform-origin:150px 150px;animation:spin 90s linear infinite}
+}
+
+.slip{background:var(--paper);color:var(--ink);padding:20px 20px 28px;border-radius:var(--r)}
+@media (min-width:760px){.slip{padding:30px 32px 36px}}
+.slip-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.slip-title{font-size:26px;line-height:1.15}
+.head-total{display:none;align-items:baseline;gap:6px;white-space:nowrap}
+.head-total small{font-size:var(--s-small);color:var(--p-muted)}
+.head-total output{font-family:var(--f-head);font-size:30px;line-height:1}
+@media (min-width:1000px){
+  .slip-head{position:sticky;top:var(--head-h);z-index:3;background:var(--paper);margin:-30px -32px 0;padding:22px 32px 10px;border-radius:var(--r) var(--r) 0 0}
+  .head-back{display:none}
+  .head-total{display:flex}
+}
+.steps{display:flex;gap:6px;margin:12px 0 18px;padding:0;list-style:none}
+.steps li{flex:1}
+.steps button{width:100%;min-height:44px;border:0;background:none;padding:0 0 10px;text-align:left;cursor:pointer;font-size:15px;font-weight:700;color:var(--p-muted)}
+.steps button::before{content:"";display:block;height:4px;border-radius:4px;background:var(--field);margin-bottom:8px;transition:background-color var(--t-ui) ease}
+.steps button[aria-current="step"]{color:var(--ink)}
+.steps button[aria-current="step"]::before,.steps button.done::before{background:var(--gold-d)}
+.steps button:disabled{cursor:default}
+.slip.is-done .slip-head,.slip.is-done .steps,.slip.is-done .receipt{display:none}
+.pane[hidden]{display:none}
+.pane{animation:pane-in .5s var(--ease-out) both}
+@keyframes pane-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+fieldset{border:0;margin:0 0 18px;padding:0;min-width:0}
+legend{font-weight:700;font-size:var(--s-ui);margin-bottom:10px;padding:0}
+.svc{display:grid;gap:0}
+.svc label{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;min-height:52px;padding:12px 14px;background:transparent;border-radius:0;box-shadow:inset 0 1px 0 var(--p-line);cursor:pointer;transition:background-color var(--t-hover) ease,color var(--t-hover) ease,transform var(--t-press) var(--ease-out)}
+.svc label:active{transform:scale(.985)}
+.svc input{position:absolute;opacity:0;pointer-events:none}
+.svc .nm{font-weight:700}
+.svc .pr{font-size:15px;color:rgba(32,36,28,.7);font-variant-numeric:tabular-nums;white-space:nowrap}
+.svc .ln{grid-column:1/-1;font-size:var(--s-small);line-height:1.45;color:#CFCBBE;display:none}
+.svc input:checked+label{background:var(--bg);color:var(--cream);box-shadow:none;border-radius:var(--r-s)}
+@media (max-width:999px){.svc input:checked+label+input+label{box-shadow:none}}
+.svc-line{display:none}
+@media (min-width:1000px){
+  .svc{grid-template-columns:1fr 1fr;gap:6px}
+  .svc label{grid-template-columns:1fr;gap:0;min-height:52px;padding:7px 14px;border-radius:var(--r-s);box-shadow:inset 0 0 0 1px var(--p-line)}
+  .svc .pr{font-size:var(--s-small)}
+  .slip .svc input:checked+label .ln{display:none}
+  .slip .steps{margin:8px 0 12px}
+  .slip fieldset{margin-bottom:14px}
+  .svc-line{display:block;margin-top:10px;font-size:15px;line-height:1.45;color:#3A3D31;min-height:1.45em}
+}
+.svc input:checked+label .pr{color:var(--gold)}
+.svc input:checked+label .ln{display:block;animation:pane-in .45s var(--ease-out) both}
+.svc input:focus-visible+label{outline:3px solid var(--gold-d);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:var(--field);font-size:var(--s-ui);cursor:pointer;transition:background-color var(--t-hover) ease,color var(--t-hover) ease,transform var(--t-press) var(--ease-out)}
+.chip span:active{transform:scale(.96)}
+.chip input:checked+span{background:var(--bg);color:var(--cream)}
+.chip input:focus-visible+span{outline:3px solid var(--gold-d);outline-offset:2px}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.days .chip span{width:100%;flex-direction:column;justify-content:center;gap:0;min-height:58px;padding:6px 4px;border-radius:var(--r-s);line-height:1.2;font-weight:700}
+.days .chip b{font-size:var(--s-small);font-weight:400;color:var(--p-muted)}
+.days .chip input:checked+span b{color:var(--gold)}
+.field{display:block;margin-bottom:16px}
+.field span{display:block;font-weight:700;margin-bottom:8px}
+.field span small{font-size:var(--s-small);font-weight:400;color:var(--p-muted);margin-left:4px}
+.field input::placeholder{color:#9A9884}
+.field input{width:100%;min-height:52px;padding:0 16px;border:2px solid transparent;border-radius:var(--r-s);background:var(--field);color:var(--ink);font-size:16px;transition:border-color var(--t-hover) ease,background-color var(--t-hover) ease}
+.field input:focus{outline:none;border-color:var(--gold-d);background:#FFFDF7}
+.field input[aria-invalid="true"]{border-color:#A2361F}
+.hint{display:block;font-size:var(--s-small);color:var(--p-muted);margin-top:8px;min-height:1.4em}
+.hint.ok{color:#3D5A2A}
+.err{display:block;font-size:var(--s-small);color:#A2361F;margin-top:8px;font-weight:700}
+.err:empty{display:none}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
+.back{border:0;background:none;min-height:44px;padding:0;font-weight:700;color:var(--p-muted);cursor:pointer}
+.slip .btn{background:var(--bg);color:var(--cream)}
+.cta-row{margin-top:18px}
+/* on phones the bottom bar carries Next and Send, so the in-form copies step aside */
+@media (max-width:999px){
+  .js .fwd{display:none}.js .cta-row{display:none}.js .navrow{display:none}
+  .head-back{display:inline-flex;align-items:center;gap:4px;font-size:15px}
+  .head-back[hidden]{display:none}
+  /* the bar already shows the from-price; the full summary waits for the done card */
+  .js .receipt h3,.js .receipt .rows,.js .receipt .total{display:none}
+  .js .receipt{margin-top:4px;padding-top:0}.js .receipt::before{display:none}
+}
+
+.receipt{margin-top:22px;padding-top:20px;position:relative}
+.receipt::before{content:"";position:absolute;left:-20px;right:-20px;top:0;height:8px;background:var(--field)}
+@media (min-width:760px){.receipt::before{left:-32px;right:-32px}}
+.receipt h3{font:700 var(--s-ui)/1.4 var(--f-body);letter-spacing:0;margin-bottom:10px}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;gap:16px;padding:7px 0;animation:row-in .45s var(--ease-out) both}
+.rows li small{display:block;color:var(--p-muted);font-size:var(--s-small)}
+.rows li .amt{white-space:nowrap;font-variant-numeric:tabular-nums}
+@keyframes row-in{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:10px;padding-top:14px;position:relative}
+.total::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ink)}
+.total span{font-weight:700}
+.total output{font-family:var(--f-head);font-size:var(--s-head);line-height:1;font-variant-numeric:tabular-nums}
+.note{font-size:var(--s-small);color:var(--p-muted);margin:10px 0 0;line-height:1.5}
+
+.done-box:focus{outline:none}
+.tick{width:52px;height:52px;border-radius:50%;background:#2A2C24;color:var(--gold);display:grid;place-items:center;margin-bottom:16px;animation:pop .6s var(--ease-expo) both}
+.tick svg{width:26px;height:26px}
+.tick path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .5s .25s var(--ease-out) forwards}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.sum-top{display:flex;align-items:center;gap:16px;background:var(--bg);color:var(--cream);padding:20px 20px 22px;border-radius:var(--r)}
+.sum-top .tick{margin:0;flex:none}
+.sum-top .nw{white-space:nowrap}
+.sum-top .lab{display:block;font-size:var(--s-small);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.sum-top .day{display:block;font-family:var(--f-head);font-size:clamp(28px,7.4vw,36px);line-height:1.1;margin-top:4px}
+.done-box h3{font:700 19px/1.35 var(--f-body);letter-spacing:0;margin-top:20px}
+.done-box p{line-height:1.55;margin-top:8px;color:#3A3D31}
+.sum{margin-top:18px;background:var(--field);border-radius:var(--r);padding:8px 18px 14px}
+.sum .rows li{animation:none;border-bottom:1px solid var(--p-line)}
+.sum-total{margin-top:10px;font-weight:700}
+.done-foot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;margin-top:10px}
+.done-foot .link{color:var(--ink);display:none}
+.done-foot .link svg{color:var(--gold-d)}
+@media (min-width:1000px){.done-foot .link{display:inline-flex}}
+.again{border:0;background:none;min-height:44px;padding:0;color:var(--p-muted);font-size:var(--s-small);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding:72px 0}
+@media (min-width:1000px){.sec{padding:150px 0}}
+.sec h2{font-size:var(--s-head);line-height:1.1}
+.g12{display:grid;gap:24px}
+.g12>*,.hero-grid>*{min-width:0}
+@media (min-width:1000px){.g12{grid-template-columns:repeat(12,1fr);column-gap:24px}}
+.para{font-size:17px;line-height:1.55;margin-top:16px;max-width:30em}
+@media (min-width:1000px){.para{font-size:var(--s-lead);margin-top:18px}}
+
+/* prices: their tariff on their light section colour */
+.prices{background:var(--light);color:var(--ink)}
+.prices .para{color:var(--ink)}
+@media (min-width:1000px){.prices .lhs{grid-column:1/5;position:sticky;top:124px;align-self:start}.prices .rhs{grid-column:6/-1}}
+.tariff{list-style:none;margin:0;padding:0}
+.tariff li{border-top:1px solid #CFC8B6}
+.tariff li:first-child{border-top:0}
+.trow{display:grid;grid-template-columns:1fr auto 20px;gap:4px 14px;align-items:center;width:100%;min-height:64px;padding:10px 0;border:0;background:none;color:var(--ink);text-align:left;cursor:pointer}
+.trow .tn{font-family:var(--f-head);font-size:20px;line-height:1.2}
+.trow .from{white-space:nowrap;color:#4E5143;font-size:var(--s-small)}
+.trow .from b{font-family:var(--f-head);font-weight:400;font-size:22px;color:var(--ink);margin-left:4px}
+.trow>svg{width:20px;height:20px;color:var(--gold-d);transition:transform var(--t-ui) var(--ease-out)}
+.trow .tl,.trow .tgo{display:none}
+@media (min-width:1000px){
+  .trow{grid-template-columns:1fr auto;gap:4px 20px;align-items:baseline;padding:22px 0}
+  .trow .tn{font-size:var(--s-sub)}
+  .trow .from b{font-size:26px}
+  .trow>svg{display:none}
+  .trow .tl{display:block;grid-column:1/-1;max-width:36em}
+  .trow .tgo{display:inline-flex;align-items:center;gap:8px;grid-column:1/-1;min-height:36px;font-weight:700}
+  .trow .tgo svg{width:18px;height:18px;color:var(--gold-d);transition:transform var(--t-ui) var(--ease-out)}
+}
+.small-print{margin-top:26px;padding:20px 22px;background:#E0DACB;font-size:var(--s-ui);line-height:1.55;max-width:44em}
+@media (max-width:999px){.prices .rhs{margin-top:8px}}
+
+/* commercial */
+.biz{background:var(--panel)}
+@media (min-width:1000px){.biz .lhs{grid-column:1/6}.biz .rhs{grid-column:7/-1}}
+.biz .para{color:var(--cream)}
+.biz .act{margin-top:26px}
+.types{display:grid;gap:0;margin:0;padding:0;list-style:none}
+@media (min-width:640px){.types{grid-template-columns:1fr 1fr;column-gap:32px}}
+.types li{padding:20px 0;border-top:1px solid var(--line)}
+.types h3{font-size:var(--s-sub);line-height:1.2;color:var(--gold)}
+.types p{margin-top:6px;color:var(--cream)}
+
+/* how booking works */
+.how{background:var(--deep)}
+@media (min-width:1000px){.how .lhs{grid-column:1/6}.how .rhs{grid-column:7/-1}}
+.how .para{color:var(--cream)}
+.it h3{font:700 var(--s-ui)/1.4 var(--f-body);letter-spacing:0;margin:22px 0 4px;color:var(--gold-d)}
+.it h3:first-child{margin-top:0}
+.it ul{list-style:none;margin:0;padding:0}
+.it li{display:flex;align-items:baseline;gap:10px;padding:6px 0}
+.it li .what{flex:0 1 auto}
+.it li .dots{flex:1 1 20px;overflow:hidden;white-space:nowrap;color:#B9B29D;letter-spacing:3px;min-width:20px}
+.it li .dots::before{content:"··································································································"}
+.it li .val{flex:none;font-variant-numeric:tabular-nums;color:var(--p-muted);font-size:var(--s-small);text-align:right}
+@media (max-width:519px){.it li{flex-direction:column;gap:0;padding:7px 0}.it li .dots{display:none}.it li .val{text-align:left}}
+.final{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--bg);color:var(--cream);min-height:46px;padding:10px 16px;margin-top:22px;border-radius:var(--r);font-weight:700}
+.final span:last-child{white-space:nowrap;color:var(--gold)}
+@media (max-width:999px){.how .rhs{margin-top:8px}}
+
+/* areas */
+.areas{background:var(--panel)}
+@media (min-width:1000px){.areas .lhs{grid-column:1/6}.areas .rhs{grid-column:7/-1}}
+.areas .para{color:var(--cream)}
+.alist{list-style:none;margin:24px 0 0;padding:0;columns:2;column-gap:24px}
+.alist li{break-inside:avoid}
+.alist button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;border:0;background:none;padding:0;text-align:left;font-size:17px;cursor:pointer;color:var(--cream);transition:color var(--t-hover) ease}
+.alist button::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--line);flex:none;transition:background-color var(--t-hover) ease,transform var(--t-ui) var(--ease-out)}
+.alist button[aria-pressed="true"]::before{background:var(--gold);transform:scale(1.25)}
+.alist button[aria-pressed="true"]{color:var(--gold)}
+.ask{margin-top:18px;font-weight:700}
+.frame{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg);border-radius:var(--r)}
+.frame svg{display:block;width:100%;height:100%}
+.frame .pt circle.dot{fill:#5D5A45;transition:fill .6s ease}
+.frame .pt circle.ring{fill:none;stroke:var(--gold);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center}
+.frame .pt text{font:400 12px/1 var(--f-body);fill:var(--muted);transition:fill .6s ease}
+.frame .pt.on circle.dot{fill:var(--gold)}
+.frame .pt.on circle.ring{animation:ring 3.5s var(--ease-out) infinite}
+.frame .pt.on text{fill:var(--cream);font-weight:700}
+@keyframes ring{0%{opacity:.75;transform:scale(.6)}100%{opacity:0;transform:scale(2.4)}}
+.cap{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:var(--s-small);color:var(--muted)}
+.cap b{color:var(--cream)}
+@media (max-width:999px){.areas .rhs{margin-top:8px}}
+
+/* faq */
+.faq{background:var(--light);color:var(--ink)}
+@media (min-width:1000px){.faq .lhs{grid-column:1/4}.faq .rhs{grid-column:5/-1;columns:2;column-gap:56px}}
+.faq .rhs p{max-width:64ch;break-inside:avoid;margin-bottom:20px;line-height:1.6}
+
+/* talk band: a whole field of their gold */
+.talk{background:var(--gold);color:var(--bg)}
+.talk .say{font-size:clamp(28px,3.4vw,48px);line-height:1.12;max-width:16em}
+.talk .act{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.talk .where{margin-top:16px;font-size:var(--s-ui)}
+@media (max-width:999px){.talk .act .js-call,.talk .act .js-wa{display:none}}
+
+/* footer */
+.foot{padding:72px 0 calc(32px + var(--bar))}
+@media (min-width:1000px){.foot{padding-top:96px}}
+.foot .brand img{height:56px;width:auto}
+.foot .line{display:grid;gap:6px;margin-top:28px}
+.foot .line a{color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.foot .links{display:flex;flex-wrap:wrap;gap:0 24px}
+.foot .m{color:var(--muted)}
+.foot .label{margin-top:24px;font-weight:700;color:var(--cream)}
+@media (min-width:1000px){.foot .line{grid-template-columns:1fr auto 1fr;align-items:center}.foot .line .yr{text-align:right}}
+
+/* bottom bar on phones: Call / WhatsApp on every screen; next to the request it also carries the from-price and the next step */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;padding:8px var(--gut) calc(8px + env(safe-area-inset-bottom));background:var(--panel);box-shadow:0 -1px 0 var(--line)}
+.bar .grp{grid-area:1/1;display:grid;gap:8px;align-items:center;transition:opacity .28s var(--ease-out),transform .28s var(--ease-out),visibility 0s}
+.bar .grp[aria-hidden="true"]{opacity:0;transform:translateY(10px);visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s}
+.bar .contact{grid-template-columns:1fr 1fr}
+.bar .quote{grid-template-columns:48px 48px auto 1fr}
+.bar .btn{min-height:48px;padding:0 12px}
+.ibtn{width:48px;height:48px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:#2A2C24;color:var(--cream);transition:transform var(--t-press) var(--ease-out)}
+.ibtn:active{transform:scale(.94)}
+.ibtn.wa{background:var(--wa);color:#0B1F12}
+.ibtn svg{width:20px;height:20px}
+.bprice{display:flex;flex-direction:column;line-height:1;padding:0 2px 0 6px}
+.bprice small{font-size:12px;color:var(--muted);margin-bottom:3px}
+.bprice output{font-family:var(--f-head);font-size:22px;font-variant-numeric:tabular-nums;color:var(--gold)}
+.bar [hidden]{display:none}
+@media (max-width:999px){:root{--bar:64px}}
+@media (min-width:1000px){.bar{display:none}}
+
+/* hover only where there is a mouse */
+@media (hover:hover){
+  .btn:hover{background:var(--gold-h)}
+  .btn.wa:hover{background:#3BDB76}
+  .btn.ghost:hover{background:#34362B}
+  .slip .btn:hover,.btn.ink:hover{background:#2A2C24}
+  .link:hover{color:var(--gold-h)}
+  .link:hover svg{transform:translateX(2px)}
+  .nav a:hover::after{transform:scaleX(1)}
+  .svc label:hover{background:var(--field-h)}
+  .svc input:checked+label:hover{background:#22241E}
+  .chip span:hover{background:var(--field-h)}
+  .chip input:checked+span:hover{background:#22241E}
+  .field input:hover{background:var(--field-h)}
+  .field input:focus:hover{background:#FFFDF7}
+  .back:hover,.again:hover{color:var(--ink)}
+  .trow:hover .tn,.trow:hover .tgo{color:var(--gold-d)}
+  .trow:hover>svg,.trow:hover .tgo svg{transform:translateX(2px)}
+  .alist button:hover::before{background:var(--gold);transform:scale(1.25)}
+  .foot .line a:hover{color:var(--gold)}
+}
+
+/* entrances: only when script runs; content stays visible without it */
+.js [data-rise]{opacity:0;transform:translateY(24px)}
+.js [data-rise].in{opacity:1;transform:none;transition:opacity var(--t-reveal) var(--ease-out),transform var(--t-reveal) var(--ease-expo);transition-delay:calc(var(--i,0) * 80ms)}
+@media (prefers-reduced-motion:reduce){
+  .js [data-rise]{opacity:1;transform:none}
+  *,*::before,*::after{animation-duration:1ms!important;animation-delay:0ms!important;transition-duration:1ms!important}
+  .roundel .spin{animation:none!important}
+  .frame .pt.on circle.ring{animation:none;opacity:.5;transform:scale(1.6)}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Evers &amp; Paige, back to top"><img src="evers-paige-logo.svg" width="240" height="50" alt="Evers &amp; Paige"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#prices">Prices</a>
+      <a href="#business">Businesses</a>
+      <a href="#how">How it works</a>
+      <a href="#areas">Areas</a>
+    </nav>
+    <div class="top-right">
+      <button class="link js-call" type="button"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call us</button>
+      <button class="link js-wa" type="button"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp us</button>
+      <a class="btn small hdr-cta" href="#quote"><span class="l">Book a free estimate</span><span class="s">Free estimate</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="hero-side">
+      <h1 id="h1" data-rise><span class="eyebrow">Home &amp; commercial cleaning in Leicestershire</span><span class="display">Clean spaces. Lasting <em>impressions.</em></span></h1>
+      <p class="hero-lead" data-rise style="--i:1">Choose your clean, see where the price starts and pick a day for your free estimate visit.<span class="d-only"> Based in Groby, working in Anstey, Markfield, Newtown Linford and across Leicestershire.</span></p>
+      <div class="rating" data-rise style="--i:2"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span>5.0 on Google</span></div>
+      <ul class="trust" data-rise style="--i:3">
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Free estimate visits</li>
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Supplies included</li>
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Insured cleaners</li>
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Re-clean free</li>
+      </ul>
+      <div class="roundel" data-rise style="--i:4" aria-hidden="true">
+        <!-- their circular lettering, rebuilt as SVG in their gold; no box, no photo -->
+        <svg viewBox="0 0 300 300" focusable="false">
+          <defs><path id="ring-path" d="M150 150m-118 0a118 118 0 1 1 236 0a118 118 0 1 1-236 0"/></defs>
+          <circle cx="150" cy="150" r="140" fill="none" stroke="#D2AF62" stroke-width="1.5"/>
+          <circle cx="150" cy="150" r="96" fill="none" stroke="#9C8146" stroke-opacity=".55"/>
+          <g class="spin"><text style="font:700 12.5px/1 var(--f-body);letter-spacing:.2em;fill:#D2AF62"><textPath href="#ring-path" textLength="736" lengthAdjust="spacing">EVERS &amp; PAIGE · QUALITY · CARE · EXCELLENCE · GROBY · LEICESTERSHIRE ·</textPath></text></g>
+          <text x="150" y="166" text-anchor="middle" style="font:400 46px/1 var(--f-head);fill:#D2AF62">EP</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="slip-col" id="quote" data-rise style="--i:2">
+      <form class="slip" id="qform" novalidate aria-labelledby="qtitle">
+        <div class="slip-head">
+          <h2 class="slip-title" id="qtitle">Book a free estimate</h2>
+          <button type="button" class="back head-back" id="head-back" data-go="0" hidden>&#8249; Back</button>
+          <p class="head-total" aria-hidden="true"><small>From</small><output data-total class="tab">£14.99</output></p>
+        </div>
+        <ol class="steps" aria-label="Request steps">
+          <li><button type="button" data-go="0" aria-current="step">Your clean</button></li>
+          <li><button type="button" data-go="1" disabled>Your day</button></li>
+          <li><button type="button" data-go="2" disabled>Your details</button></li>
+        </ol>
+
+        <div class="pane" data-pane="0">
+          <fieldset>
+            <legend>What needs cleaning?</legend>
+            <div class="svc" id="svc"></div>
+            <p class="svc-line" id="svc-line" aria-hidden="true"></p>
+          </fieldset>
+          <fieldset>
+            <legend>Is it a home or a business?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="kind" value="Home" checked><span>Home</span></label>
+              <label class="chip"><input type="radio" name="kind" value="Business"><span>Business</span></label>
+            </div>
+          </fieldset>
+          <div class="cta-row"><button type="button" class="btn wide fwd" data-next="1">Next: pick a day<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        </div>
+
+        <div class="pane" data-pane="1" hidden>
+          <fieldset>
+            <legend>Which day suits you for the estimate visit?</legend>
+            <div class="days" id="days"></div>
+            <span class="err" id="day-err"></span>
+          </fieldset>
+          <fieldset>
+            <legend>What time of day?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="tod" value="morning" checked><span>Morning</span></label>
+              <label class="chip"><input type="radio" name="tod" value="afternoon"><span>Afternoon</span></label>
+              <label class="chip"><input type="radio" name="tod" value="any time"><span>Any time</span></label>
+            </div>
+          </fieldset>
+          <label class="field"><span>Postcode <small>optional</small></span>
+            <input id="pc" name="postcode" autocomplete="postal-code" inputmode="text" placeholder="e.g. LE6 0AA" aria-describedby="pc-hint pc-err">
+            <span class="hint" id="pc-hint" aria-live="polite"></span><span class="err" id="pc-err"></span>
+          </label>
+          <div class="navrow"><button type="button" class="back" data-go="0">Back</button><button type="button" class="btn fwd" data-next="2">Next: your details<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        </div>
+
+        <div class="pane" data-pane="2" hidden>
+          <label class="field"><span>Your name</span><input id="nm" name="name" autocomplete="name" aria-describedby="nm-err"><span class="err" id="nm-err"></span></label>
+          <label class="field"><span>Mobile or email</span><input id="ct" name="contact" autocomplete="tel" aria-describedby="ct-err"><span class="err" id="ct-err"></span></label>
+          <div class="navrow"><button type="button" class="back" data-go="1">Back</button><button type="submit" class="btn fwd">Send request</button></div>
+        </div>
+
+        <div class="pane" data-pane="3" hidden>
+          <div class="done-box" role="status" tabindex="-1" id="done">
+            <div class="sum-top">
+              <div class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div><span class="lab">Request received</span><span class="day" id="sum-day"></span></div>
+            </div>
+            <h3 id="done-h">Thanks, we’ll be in touch.</h3>
+            <p id="done-p"></p>
+            <div class="sum">
+              <ul class="rows" id="sum-rows"></ul>
+              <p class="sum-total" id="sum-total"></p>
+            </div>
+            <div class="done-foot">
+              <button type="button" class="link js-call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call us</button>
+              <button type="button" class="link js-wa"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp us</button>
+              <button type="button" class="again" id="again">Start again</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="receipt" aria-live="polite">
+          <h3>Your request</h3>
+          <ul class="rows" id="rows"></ul>
+          <div class="total"><span>From</span><output id="total" data-total class="tab">£14.99</output></div>
+          <p class="note">Final price and visit duration are agreed after your estimate. Selected services have a minimum 30-minute booking.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec prices" id="prices" aria-labelledby="h-prices">
+  <div class="wrap g12">
+    <div class="lhs">
+      <h2 id="h-prices" data-rise>Whatever your space, we’ll make it shine</h2>
+      <p class="para" data-rise style="--i:1">Eight cleans, each with the price it starts from. Pick one and choose a day for your free estimate visit; we agree the scope and the final price with you there.</p>
+    </div>
+    <div class="rhs">
+      <ul class="tariff" id="tariff"></ul>
+      <p class="small-print" data-rise>Final price and visit duration are agreed after your estimate. Selected services have a minimum 30-minute booking. Already have a written quote from another cleaner? Ask about our like-for-like price guarantee.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec biz" id="business" aria-labelledby="h-biz">
+  <div class="wrap g12">
+    <div class="lhs">
+      <h2 id="h-biz" data-rise>A cleaner workplace. A better first impression.</h2>
+      <p class="para" data-rise style="--i:1">Offices, shops and shared spaces across Leicestershire. Pick a day for us to come and look; we’ll talk through your premises and how often you need us at the free estimate visit.</p>
+      <div class="act" data-rise style="--i:2"><button type="button" class="btn" id="biz-go">Book a free estimate<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+    </div>
+    <ul class="rhs types">
+      <li data-rise><h3>Offices &amp; workplaces</h3><p>Fresh working areas, meeting rooms and shared spaces.</p></li>
+      <li data-rise style="--i:1"><h3>Shops &amp; premises</h3><p>A clean, welcoming setting for customers and visitors.</p></li>
+      <li data-rise style="--i:2"><h3>Communal cleaning</h3><p>Care for entrances, corridors and communal facilities.</p></li>
+      <li data-rise style="--i:3"><h3>One-off &amp; deep cleans</h3><p>Extra attention when your business space needs a reset.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec how" id="how" aria-labelledby="h-how">
+  <div class="wrap g12">
+    <div class="lhs">
+      <h2 id="h-how" data-rise>How booking works</h2>
+      <p class="para" data-rise style="--i:1">It’s the little things that make the difference. One route from your price to a clean space: the form, a call and a WhatsApp all end in the same place, a day that suits you, confirmed by us.</p>
+    </div>
+    <div class="rhs">
+      <div class="slip it" data-rise style="--i:2">
+        <h3>Now</h3>
+        <ul>
+          <li><span class="what">Choose your clean and see where it starts</span><span class="dots" aria-hidden="true"></span><span class="val">from £14.99</span></li>
+          <li><span class="what">Pick a day and a time of day</span><span class="dots" aria-hidden="true"></span><span class="val">1 tap</span></li>
+          <li><span class="what">Leave your name and a number</span><span class="dots" aria-hidden="true"></span><span class="val">2 boxes</span></li>
+        </ul>
+        <h3>Next</h3>
+        <ul>
+          <li><span class="what">We call or message to confirm your visit</span><span class="dots" aria-hidden="true"></span><span class="val">Your day</span></li>
+          <li><span class="what">Free estimate visit: we agree the scope and price</span><span class="dots" aria-hidden="true"></span><span class="val">Free</span></li>
+        </ul>
+        <h3>On the day</h3>
+        <ul>
+          <li><span class="what">Uniformed, reference-checked cleaners</span><span class="dots" aria-hidden="true"></span><span class="val">Trained, insured</span></li>
+          <li><span class="what">We bring what we need</span><span class="dots" aria-hidden="true"></span><span class="val">Supplies included</span></li>
+        </ul>
+        <h3>Within 48 hours</h3>
+        <ul>
+          <li><span class="what">An area falls short? Tell us and we return</span><span class="dots" aria-hidden="true"></span><span class="val">Re-clean free</span></li>
+        </ul>
+        <div class="final"><span>Your space. Our care. No shortcuts.</span><span>Groby</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec areas" id="areas" aria-labelledby="h-areas">
+  <div class="wrap g12">
+    <div class="lhs">
+      <h2 id="h-areas" data-rise>On your doorstep. Across Leicestershire.</h2>
+      <p class="para" data-rise style="--i:1">Based in Groby. We clean homes and businesses in the villages around us and across the rest of Leicestershire.</p>
+      <ul class="alist" id="alist" data-rise style="--i:2"></ul>
+      <p class="ask" data-rise style="--i:3">Somewhere else in Leicestershire? Pick a day and tell us where.</p>
+    </div>
+    <figure class="rhs" data-rise style="--i:2">
+      <div class="frame">
+        <!-- our own sketch: the four named villages roughly where they sit around Groby (not to scale) -->
+        <svg viewBox="0 0 400 300" role="img" aria-label="Sketch of Groby, Anstey, Markfield and Newtown Linford, not to scale" focusable="false">
+          <g fill="none" stroke="#9C8146" stroke-opacity=".3">
+            <circle cx="205" cy="150" r="56" stroke-dasharray="2 6"/><circle cx="205" cy="150" r="108" stroke-dasharray="2 6"/>
+          </g>
+          <text x="205" y="292" text-anchor="middle" style="font:italic 400 14px/1 var(--f-head);fill:#9C8146">and across Leicestershire</text>
+          <g id="pts"></g>
+        </svg>
+      </div>
+      <figcaption class="cap"><b id="cap">Groby</b><span>Leicestershire</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec faq" id="questions" aria-labelledby="h-faq">
+  <div class="wrap g12">
+    <div class="lhs"><h2 id="h-faq" data-rise>Questions, answered</h2></div>
+    <div class="rhs" data-rise style="--i:1">
+      <p><b>How is the price set?</b> We arrange a free estimate visit to see the size, condition and cleaning needs of your space, then agree the scope and price with you. The prices above are where each clean starts.</p>
+      <p><b>Does my request book the clean?</b> It sends us the day you’d like for your estimate visit. We call or message to confirm it with you.</p>
+      <p><b>Do you bring equipment?</b> Yes. Equipment and supplies are included.</p>
+      <p><b>Who are your cleaners?</b> Uniformed, reference-checked cleaners, with training and insurance.</p>
+      <p><b>What if something isn’t right?</b> If an area falls short, tell us within 48 hours and we’ll return to re-clean it free of charge.</p>
+      <p><b>Already have a quote?</b> Bring it to us. Ask about our like-for-like price guarantee; we need a valid written quote.</p>
+      <p><b>Do you clean businesses?</b> Yes: offices and workplaces, shops and premises, communal areas, and one-off or deep cleans.</p>
+      <p><b>Is there a minimum booking?</b> Selected services have a minimum 30-minute booking.</p>
+      <p><b>Where do you work?</b> Groby, Anstey, Markfield, Newtown Linford and across the rest of Leicestershire.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec talk" aria-labelledby="h-talk">
+  <div class="wrap">
+    <h2 class="say" id="h-talk" data-rise>Let’s take something off your to-do list.</h2>
+    <div class="act" data-rise style="--i:1">
+      <a class="btn ink" href="#quote">Book a free estimate<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button type="button" class="btn ink js-call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call us</button>
+      <button type="button" class="btn wa js-wa"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp us</button>
+    </div>
+    <p class="where" data-rise style="--i:2">Based in Groby, Leicestershire.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="brand"><img src="evers-paige-logo.svg" width="240" height="50" alt="Evers &amp; Paige"></div>
+    <div class="line">
+      <span>Evers &amp; Paige Ltd, Groby, Leicestershire</span>
+      <nav class="links" aria-label="Footer"><a href="#prices">Prices</a><a href="#business">Businesses</a><a href="#how">How booking works</a><a href="#areas">Areas</a><a href="#questions">Questions</a></nav>
+      <span class="yr m">© 2026</span>
+    </div>
+    <p class="label">Example redesign by Stratford Digital. Not the live site.</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-label="Contact">
+  <div class="grp contact" id="bar-contact">
+    <button type="button" class="btn ghost js-call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call us</button>
+    <button type="button" class="btn ghost wa-i js-wa"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp us</button>
+  </div>
+  <div class="grp quote" id="bar-quote" aria-hidden="true" inert>
+    <button type="button" class="ibtn js-call" aria-label="Call us"><svg aria-hidden="true"><use href="#i-phone"/></svg></button>
+    <button type="button" class="ibtn wa-i js-wa" aria-label="WhatsApp us"><svg aria-hidden="true"><use href="#i-chat"/></svg></button>
+    <p class="bprice"><small>From</small><output data-total class="tab">£14.99</output></p>
+    <button type="button" class="btn" id="bar-next"><span id="bar-next-t">Pick a day</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <button type="submit" form="qform" class="btn" id="bar-send" hidden>Send request</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var phone = window.matchMedia('(max-width: 999px)');
+
+  /* ---------- data: as shown on eversandpaige.com (18.11.2026); "FROM" prices exactly, no unit invented ---------- */
+  var SERVICES = [
+    {id:'domestic', name:'Domestic Cleaning', from:14.99, kind:'Home', line:'Regular help to keep your home fresh, tidy and comfortable.'},
+    {id:'commercial', name:'Commercial Cleaning', from:19.99, kind:'Business', line:'Cleaning tailored to offices, workplaces and commercial premises.'},
+    {id:'communal', name:'Communal Cleaning', from:39.99, kind:'Business', line:'Welcoming shared spaces for residents, visitors and colleagues.'},
+    {id:'spring', name:'Spring / Summer Cleans', from:49.99, line:'A seasonal refresh for the rooms that need a little extra attention.'},
+    {id:'eot', name:'End of Tenancy', from:49.99, line:'Prepare your property for its next chapter and its next residents.'},
+    {id:'specialist', name:'Specialist Cleaning', from:69.99, line:'Talk to us about more demanding jobs and individual requirements.'},
+    {id:'builders', name:'Builders Clean', from:89.99, line:'Clear away the dust and reveal the finish after building work.'},
+    {id:'deep', name:'Deep Cleaning', from:99.99, line:'An extra-thorough clean for a fresh start from top to bottom.'}
+  ];
+  var AREAS = ['Groby','Anstey','Markfield','Newtown Linford'];
+
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var esc = function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var gbp = function(n){return '£'+n.toFixed(2)};
+
+  /* ---------- build ---------- */
+  $('#svc').innerHTML = SERVICES.map(function(s){
+    return '<input type="radio" name="service" id="s-'+s.id+'" value="'+s.id+'"'+(s.id==='domestic'?' checked':'')+'>'+
+      '<label for="s-'+s.id+'"><span class="nm">'+esc(s.name)+'</span><span class="pr">from '+gbp(s.from)+'</span><span class="ln">'+esc(s.line)+'</span></label>';
+  }).join('');
+  $('#tariff').innerHTML = SERVICES.map(function(s,i){
+    return '<li data-rise style="--i:'+(i%4)+'"><button type="button" class="trow" data-pick="'+s.id+'" aria-label="'+esc(s.name)+', from '+gbp(s.from)+'. Book a free estimate">'+
+      '<span class="tn">'+esc(s.name)+'</span><span class="from">from<b class="tab">'+gbp(s.from)+'</b></span><svg aria-hidden="true"><use href="#i-arrow"/></svg>'+
+      '<span class="tl">'+esc(s.line)+'</span><span class="tgo">Book a free estimate<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button></li>';
+  }).join('');
+  $('#alist').innerHTML = AREAS.map(function(a){return '<li><button type="button" aria-pressed="false" data-a="'+a+'">'+a+'</button></li>'}).join('');
+
+  /* days: the next eight days */
+  var dayFmt = new Intl.DateTimeFormat('en-GB',{weekday:'short'});
+  var dateFmt = new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short'});
+  var shortFmt = new Intl.DateTimeFormat('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  var longFmt = new Intl.DateTimeFormat('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  var today = new Date(); today.setHours(12,0,0,0);
+  var dayHtml = '';
+  for (var d=1; d<=8; d++){
+    var dt = new Date(today.getTime()+d*864e5);
+    var iso = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+    dayHtml += '<label class="chip"><input type="radio" name="day" value="'+iso+'"><span>'+dayFmt.format(dt)+'<b>'+dateFmt.format(dt)+'</b></span></label>';
+  }
+  $('#days').innerHTML = dayHtml;
+
+  /* ---------- state + request slip ---------- */
+  var form = $('#qform');
+  var step = 0, reached = 0;
+  function val(name){var el = form.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : null;}
+  function service(){var id = val('service'); return SERVICES.filter(function(s){return s.id===id})[0];}
+  var shown = 14.99;
+  function countTo(n){
+    var els = $$('[data-total]'), from = shown; shown = n;
+    if (reduce || from === n){ els.forEach(function(el){ el.textContent = gbp(n); }); return; }
+    var t0 = performance.now();
+    (function tick(t){ var k = Math.min(1,(t-t0)/420), e = 1-Math.pow(1-k,3), v = gbp(Math.round((from+(n-from)*e)*100)/100);
+      els.forEach(function(el){ el.textContent = v; }); if (k<1) requestAnimationFrame(tick); else els.forEach(function(el){ el.textContent = gbp(n); }); })(t0);
+  }
+  function rowsData(compact){
+    var s = service();
+    var rows = [{k:'s-'+s.id, html:'<span>'+esc(s.name)+'<small>'+esc(val('kind'))+'</small></span><span class="amt">from '+gbp(s.from)+'</span>'}];
+    rows.push({k:'est', html:'<span>Estimate visit<small>Scope and final price agreed with you</small></span><span class="amt">Free</span>'});
+    var day = val('day');
+    if (reached>=1 && day){
+      var dt = new Date(day+'T12:00:00');
+      rows.push({k:'d-'+day+val('tod'), html:'<span>Preferred day<small>'+(compact ? shortFmt.format(dt).replace(',','') : longFmt.format(dt))+', '+val('tod')+'</small></span><span class="amt">to confirm</span>'});
+    }
+    var pc = $('#pc').value.trim().toUpperCase();
+    if (reached>=1 && pcValid(pc)) rows.push({k:'p-'+pc, html:'<span>Postcode</span><span class="amt">'+esc(pc)+'</span>'});
+    return {rows:rows, total:s.from};
+  }
+  var lastKeys = [];
+  function render(){
+    var data = rowsData();
+    $('#rows').innerHTML = data.rows.map(function(r){ return '<li'+(lastKeys.indexOf(r.k)>-1?' style="animation:none"':'')+'>'+r.html+'</li>'; }).join('');
+    lastKeys = data.rows.map(function(r){return r.k});
+    countTo(data.total);
+    $('#svc-line').textContent = service().line;
+  }
+  form.addEventListener('change', function(e){
+    /* commercial and communal cleans are for businesses, domestic for homes */
+    if (e.target.name==='service'){ var s = service(); if (s.kind) form.querySelector('input[name="kind"][value="'+s.kind+'"]').checked = true; }
+    render();
+  });
+
+  /* postcode: any common UK format */
+  function outward(pc){ var m = pc.replace(/\s+/g,'').match(/^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})?$/); return m ? m[1] : null; }
+  function pcValid(pc){ return !!outward(pc); }
+  $('#pc').addEventListener('input', function(){
+    var pc = this.value.trim().toUpperCase(), o = outward(pc), h = $('#pc-hint');
+    $('#pc-err').textContent=''; this.removeAttribute('aria-invalid');
+    h.className = 'hint';
+    if (!o){ h.textContent=''; return; }
+    if (/^LE/.test(o)){ h.textContent = o+': we’ll confirm the visit when we call.'; h.className='hint ok'; }
+    else h.textContent = 'Not an LE postcode? Send it anyway and we’ll let you know.';
+    render();
+  });
+
+  /* ---------- bottom bar: from-price + next step while the request is on screen (phones) ---------- */
+  var bar = $('#bar'), quoteInView = false;
+  var NEXT_LABEL = ['Pick a day','Your details'];
+  function syncBar(){
+    var q = phone.matches && quoteInView && step < 3;
+    var on = $('#bar-quote'), off = $('#bar-contact');
+    if (!q){ var t = on; on = off; off = t; }
+    on.removeAttribute('aria-hidden'); on.inert = false;
+    off.setAttribute('aria-hidden','true'); off.inert = true;
+    bar.setAttribute('aria-label', q ? 'Your price and next step' : 'Contact');
+    document.body.classList.toggle('slip-on', q);
+    $('#bar-next').hidden = step >= 2; $('#bar-send').hidden = step !== 2;
+    if (step < 2) $('#bar-next-t').textContent = NEXT_LABEL[step];
+  }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(list){ quoteInView = list[0].isIntersecting; syncBar(); },
+      {rootMargin:'-68px 0px -72px 0px'}).observe(form);
+  }
+  if (phone.addEventListener) phone.addEventListener('change', syncBar);
+  $('#bar-next').addEventListener('click', function(){ if (step < 2 && check(step)) go(step+1, true); });
+
+  /* ---------- steps ---------- */
+  function go(n, focus){
+    step = n; reached = Math.max(reached, n);
+    $$('.pane',form).forEach(function(p){ p.hidden = +p.dataset.pane !== n; });
+    $$('.steps button',form).forEach(function(b){
+      var i = +b.dataset.go;
+      if (i===n) b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');
+      b.disabled = i>reached || n===3; b.classList.toggle('done', i<n || n===3);
+    });
+    form.classList.toggle('is-done', n===3);
+    var hb = $('#head-back'); hb.hidden = !(n===1 || n===2); hb.dataset.go = Math.max(0, n-1);
+    render(); syncBar();
+    if (focus){
+      var hh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--head-h'),10) || 68;
+      var top = form.getBoundingClientRect().top + window.scrollY - hh - 12;
+      if (form.getBoundingClientRect().top < hh + 8) window.scrollTo({top:top, behavior: reduce?'auto':'smooth'});
+      if (n===3) setTimeout(function(){ $('#done').focus({preventScroll:true}); }, 60);
+      else if (n===2) setTimeout(function(){ $('#nm').focus({preventScroll:true}); }, 60);
+    }
+  }
+  function err(id, msg, input){ $(id).textContent = msg; if (input){ input.setAttribute('aria-invalid', msg?'true':'false'); } return !msg; }
+  function check(n){
+    if (n===1){
+      var ok1 = err('#day-err', val('day') ? '' : 'Pick a day, or call us for another date.');
+      var pc = $('#pc').value.trim().toUpperCase();
+      var ok2 = err('#pc-err', (!pc || pcValid(pc)) ? '' : 'Check the postcode, for example LE6 0AA.', $('#pc'));
+      if (!ok2 && ok1) $('#pc').focus();
+      return ok1 && ok2;
+    }
+    if (n===2){
+      var nm = $('#nm'), ct = $('#ct');
+      var a = err('#nm-err', nm.value.trim().length>1 ? '' : 'Tell us your name.', nm);
+      var c = ct.value.trim(), digits = c.replace(/\D/g,'');
+      var b = err('#ct-err', (/^\S+@\S+\.\S+$/.test(c) || digits.length>=10) ? '' : 'Add a mobile number or an email address.', ct);
+      if (!a) nm.focus(); else if (!b) ct.focus();
+      return a && b;
+    }
+    return true;
+  }
+  form.addEventListener('click', function(e){
+    var nx = e.target.closest('[data-next]'), bk = e.target.closest('[data-go]');
+    if (nx){ var to = +nx.dataset.next; if (check(to-1)) go(to, true); }
+    else if (bk && !bk.disabled){ go(+bk.dataset.go, true); }
+  });
+  $('#days').addEventListener('change', function(){ $('#day-err').textContent=''; });
+  /* the demo never sends anything: it only shows the thank-you state */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (step < 2){ if (check(step)) go(step+1, true); return; }
+    if (!check(2)) return;
+    var first = $('#nm').value.trim().split(/\s+/)[0];
+    var dt = new Date(val('day')+'T12:00:00');
+    var data = rowsData(true);
+    $('#done-h').textContent = 'Thanks, '+first+'. We’ll be in touch.';
+    var tod = val('tod');
+    $('#done-p').textContent = 'We’ll call or message you to confirm your free estimate visit on '+longFmt.format(dt)+(tod==='any time' ? ', any time of day' : ' in the '+tod)+'. Your final price is agreed with you at the visit.';
+    $('#sum-day').innerHTML = '<span class="nw">'+esc(shortFmt.format(dt).replace(',', ''))+'</span> <span class="nw">· '+esc(tod.charAt(0).toUpperCase()+tod.slice(1))+'</span>';
+    $('#sum-rows').innerHTML = data.rows.filter(function(r){ return r.k.indexOf('s-')!==0; }).map(function(r){ return '<li>'+r.html+'</li>'; }).join('');
+    $('#sum-total').textContent = service().name+', from '+gbp(data.total);
+    go(3, true);
+  });
+  $('#again').addEventListener('click', function(){
+    form.reset(); $('#pc-hint').textContent=''; reached = 0; lastKeys=[];
+    $('#done-h').textContent = 'Thanks, we’ll be in touch.';
+    go(0, true);
+  });
+
+  /* "Book a free estimate" on each price, and the business button, pick the clean in the request */
+  function pick(id, kind){
+    if (step===3) $('#again').click();
+    $('#s-'+id).checked = true;
+    form.querySelector('input[name="kind"][value="'+(kind || service().kind || 'Home')+'"]').checked = true;
+    go(0); render();
+    $('#quote').scrollIntoView({behavior: reduce?'auto':'smooth', block:'start'});
+    setTimeout(function(){ $('#s-'+id).focus({preventScroll:true}); }, reduce?0:600);
+  }
+  $('#tariff').addEventListener('click', function(e){ var b = e.target.closest('[data-pick]'); if (b) pick(b.dataset.pick); });
+  $('#biz-go').addEventListener('click', function(){ pick('commercial','Business'); });
+
+  /* Call / WhatsApp: on the live site these open the phone and WhatsApp. In this example they only respond to the press. */
+  $$('.js-call, .js-wa').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); }); });
+
+  render(); syncBar();
+
+  /* ---------- areas: our own sketch, lit in turn and by the list ---------- */
+  /* rough positions around Groby (205,160), not to scale; label right (r) or left (l) */
+  var POS = {'Groby':[205,150,'r'],'Anstey':[306,130,'l'],'Markfield':[118,92,'r'],'Newtown Linford':[214,72,'r']};
+  $('#pts').innerHTML = AREAS.map(function(a){
+    var p = POS[a], r = p[2]==='r';
+    return '<g class="pt" data-area="'+a+'"><circle class="ring" cx="'+p[0]+'" cy="'+p[1]+'" r="10"/><circle class="dot" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(a==='Groby'?7:5)+'"/>'+
+      '<text x="'+(p[0]+(r?14:-14))+'" y="'+(p[1]+4)+'" text-anchor="'+(r?'start':'end')+'">'+a+'</text></g>';
+  }).join('');
+  var pts = $$('#pts .pt'), cur = -1, timer = null;
+  function show(i){
+    if (i===cur) return;
+    if (cur>-1) pts[cur].classList.remove('on');
+    cur = i; pts[cur].classList.add('on');
+    $('#cap').textContent = AREAS[cur];
+  }
+  /* only a real press marks a list button; the auto-cycle animates the sketch alone */
+  function press(a){ $$('#alist button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.a===a ? 'true':'false'); }); }
+  function startCycle(){ if (reduce || timer) return; timer = setInterval(function(){ if (!document.hidden) show((cur+1)%pts.length); }, 2600); }
+  function stopCycle(){ clearInterval(timer); timer = null; }
+  show(0);
+  $('#alist').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; stopCycle(); show(AREAS.indexOf(b.dataset.a)); press(b.dataset.a); });
+
+  /* ---------- entrances, once per element ---------- */
+  var els = $$('[data-rise]');
+  if (!('IntersectionObserver' in window) || reduce){ els.forEach(function(el){ el.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function(list){
+      list.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);
+        if (en.target.closest('#areas')) startCycle(); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ els.forEach(function(el){ if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); }); }, 1200);
+  }
+})();
+</script>
+</body>
+</html>
